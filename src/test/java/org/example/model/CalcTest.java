@@ -12,9 +12,7 @@ public class CalcTest {
     @Test
     @DisplayName("Test Sum")
     public void test_sum() {
-        int a = 2;
-        int b = 3;
-        int sumActual = Calc.sum(a, b);
+        int sumActual = Calc.sum(2, 3);
         int expected = 5;
         assertEquals(expected, sumActual);
     }
