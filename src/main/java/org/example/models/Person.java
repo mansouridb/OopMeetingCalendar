@@ -1,17 +1,22 @@
 package org.example.models;
 
 
+import java.util.List;
+
 public class Person {
     private int id;
     private String firstName;
     private String lastName;
     private String email;
     private String userCredentials;
-    private int count;
+    private static int count;
 
     public Person(int id, String firstName, String lastName, String email, String userCredentials) {
         this.id = getCount(count);
         setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+        setUserCredentials(userCredentials);
         setLastName(lastName);
         setEmail(email);
         setUserCredentials(userCredentials);
@@ -43,18 +48,18 @@ public class Person {
     }
 
     public void setFirstName(String firstName) {
-        if (firstName==null) throw new IllegalArgumentException("Please Enter the first name!!!");
+        if (firstName == null) throw new IllegalArgumentException("Please Enter the first name!!!");
         this.firstName = firstName;
 
     }
 
     public void setLastName(String lastName) {
-        if(lastName== null) throw new IllegalArgumentException("Please Enter the last name !!! ");
+        if (lastName == null) throw new IllegalArgumentException("Please Enter the last name !!! ");
         this.lastName = lastName;
     }
 
     public void setEmail(String email) {
-        if (email==null) throw  new IllegalArgumentException("Please Enter Email Address!!!");
+        if (email == null) throw new IllegalArgumentException("Please Enter Email Address!!!");
         this.email = email;
     }
 
