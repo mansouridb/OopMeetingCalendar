@@ -2,6 +2,7 @@ package org.example.models;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Meeting {
@@ -11,29 +12,29 @@ public class Meeting {
     private LocalTime start;
     private LocalTime end;
     private Person organizer;
-    private List<Person> attendants;
-    public static int count= 1;
+    private List<Person> personList;
+    public static int count = 1;
 
-    public static int getCount( int count) {
+    public static int getCount(int count) {
         return count++;
     }
 
     public Meeting(int id, String topic, LocalDate meetingDate, LocalTime start, LocalTime end, Person organizer, List<Person> attendants) {
-        this.id =getCount(count);
+        this.id = getCount(count);
         setTopic(topic);
         setMeetingDate(meetingDate);
         setStart(start);
         setEnd(end);
         setOrganizer(organizer);
         setAttendants(attendants);
-            }
+    }
 
     public String getTopic() {
         return topic;
     }
 
     public void setTopic(String topic) {
-        if (topic==null) throw new IllegalArgumentException("Please enter a topic");
+        if (topic == null) throw new IllegalArgumentException("Please enter a topic");
         this.topic = topic;
     }
 
@@ -42,7 +43,7 @@ public class Meeting {
     }
 
     public void setMeetingDate(LocalDate meetingDate) {
-        if (meetingDate==null) throw new IllegalArgumentException("Please enter meeting date");
+        if (meetingDate == null) throw new IllegalArgumentException("Please enter meeting date");
         this.meetingDate = meetingDate;
     }
 
@@ -52,7 +53,7 @@ public class Meeting {
     }
 
     public void setStart(LocalTime start) {
-        if (start==null) throw new IllegalArgumentException("Please define stat time");
+        if (start == null) throw new IllegalArgumentException("Please define stat time");
         this.start = start;
     }
 
@@ -61,7 +62,7 @@ public class Meeting {
     }
 
     public void setEnd(LocalTime end) {
-        if (end==null) throw new IllegalArgumentException("Please define end time ");
+        if (end == null) throw new IllegalArgumentException("Please define end time ");
         this.end = end;
     }
 
@@ -70,24 +71,27 @@ public class Meeting {
     }
 
     public void setOrganizer(Person organizer) {
-               if(organizer== null) throw  new IllegalArgumentException("Please enter an organizer");
-                this.organizer = organizer;
+        if (organizer == null) throw new IllegalArgumentException("Please enter an organizer");
+        this.organizer = organizer;
 
     }
 
     public List<Person> getAttendants() {
-        return attendants;
+        return personList;
     }
 
     public void setAttendants(List<Person> attendants) {
-        this.attendants = attendants;
-    }
-    public void addAttendant( List Person)
-    {
+        if (attendants == null) throw new IllegalArgumentException("");
+        this.personList = attendants;
 
     }
-    public int compareTo( int Meeting)
-    {
-return compareTo(Meeting);
+
+    public void addAttendant(List<Person> Person) {
+        if (personList==null) personList= new ArrayList<>();
+        if (personList.contains(personList)){
+            personList.add(organizer);
+    }
+
+
     }
 }
