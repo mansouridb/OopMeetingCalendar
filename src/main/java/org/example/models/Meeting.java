@@ -95,16 +95,16 @@ public class Meeting {
     }
 
     public void addAttendant(List<Person> Person) {
-        if (personList==null) personList= new ArrayList<>();
-        if (personList.contains(personList)){
+        if (personList == null) personList = new ArrayList<>();
+        if (personList.contains(personList)) {
             personList.add(organizer);
+        }
+
     }
 
-
-    }
-    public void  removeAttend(List<Person> personList){
-        if (personList==null) throw new IllegalArgumentException();
-        if (personList==null) personList = new ArrayList<>();
+    public void removeAttend(List<Person> personList) {
+        if (personList == null) throw new IllegalArgumentException();
+        if (personList == null) personList = new ArrayList<>();
         personList.remove(personList);
     }
 
