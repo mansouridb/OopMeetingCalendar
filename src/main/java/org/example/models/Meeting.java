@@ -19,6 +19,14 @@ public class Meeting {
         return count++;
     }
 
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
+    }
+
+    public List<Person> getPersonList() {
+        return personList;
+    }
+
     public Meeting(int id, String topic, LocalDate meetingDate, LocalTime start, LocalTime end, Person organizer, List<Person> attendants) {
         this.id = getCount(count);
         setTopic(topic);
@@ -94,4 +102,10 @@ public class Meeting {
 
 
     }
+    public void  removeAttend(List<Person> personList){
+        if (personList==null) throw new IllegalArgumentException();
+        if (personList==null) personList = new ArrayList<>();
+        personList.remove(personList);
+    }
+
 }
