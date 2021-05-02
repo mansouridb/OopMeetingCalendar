@@ -13,9 +13,9 @@ public class AppUser {
     public static String input;
 
     public AppUser(String username, int id, String password) {
-        this.username = username;
+       setUsername(username);
         this.id = getCount(count);
-        this.password = password;
+        setPassword(password);
     }
 
     public AppUser(String username, String password) {
@@ -23,23 +23,26 @@ public class AppUser {
 
     }
 
-    public String getUsername() {
-        if(username==null) throw  new IllegalArgumentException("You should enter a User name");
-        return username;
+    public String getUsername(String username) {
+        if (username == null) throw new IllegalArgumentException("You should enter a User name");
+        if (username.contains(username))  throw new IllegalArgumentException("This user used before please select another user name!!!");
+       return username;
     }
-
 
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public String getPassword() {
-        if (password == null) throw new IllegalArgumentException("You Should enter a Password");
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override
