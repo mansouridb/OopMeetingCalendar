@@ -94,12 +94,9 @@ public class Meeting {
 
     }
 
-    public void addAttendant(List<Person> Person) {
+    public void addAttendant(Person person) {
         if (personList == null) personList = new ArrayList<>();
-        if (personList.contains(personList)) {
-            personList.add(organizer);
-        }
-
+            personList.add(person);
     }
 
     public void removeAttend(List<Person> personList) {

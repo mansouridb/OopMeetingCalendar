@@ -11,7 +11,7 @@ public class AppUser {
     private String password;
     public static int count = 1;
     public static String input;
-
+    // constructor
     public AppUser(String username, int id, String password) {
        setUsername(username);
         this.id = getCount(count);
