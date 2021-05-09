@@ -12,30 +12,32 @@ public class Meeting {
     private LocalTime start;
     private LocalTime end;
     private Person organizer;
-    private List<Person> personList;
+    private List<Person> attendants;
     public static int count = 1;
+    private ArrayList<String> personItem = new ArrayList<String>();
+    public void addAttendant(String person) {
+        personItem.add(person);
+    }
+
+    public String removeAttendant(String person)
+    {
+        int position = personItem.indexOf(person);
+        if (position >= 0) {
+            String item = personItem.get(position);
+            personItem.remove(item);
+        }
+        return  null;
+    }
 
     public static int getCount(int count) {
         return count++;
     }
 
-    public void setPersonList(List<Person> personList) {
-        this.personList = personList;
+    public Meeting(int id, String topic, LocalDate meetingDate, LocalTime start, LocalTime end, Person organizer) {
+        this.id = id;
+        this.topic = topic;
     }
 
-    public List<Person> getPersonList() {
-        return personList;
-    }
-
-    public Meeting(int id, String topic, LocalDate meetingDate, LocalTime start, LocalTime end, Person organizer, List<Person> attendants) {
-        this.id = getCount(count);
-        setTopic(topic);
-        setMeetingDate(meetingDate);
-        setStart(start);
-        setEnd(end);
-        setOrganizer(organizer);
-        setAttendants(attendants);
-    }
 
     public String getTopic() {
         return topic;
@@ -54,8 +56,6 @@ public class Meeting {
         if (meetingDate == null) throw new IllegalArgumentException("Please enter meeting date");
         this.meetingDate = meetingDate;
     }
-
-
     public LocalTime getStart() {
         return start;
     }
@@ -81,22 +81,21 @@ public class Meeting {
     public void setOrganizer(Person organizer) {
         if (organizer == null) throw new IllegalArgumentException("Please enter an organizer");
         this.organizer = organizer;
-
     }
 
     public List<Person> getAttendants() {
-        return personList;
+        return attendants;
     }
 
     public void setAttendants(List<Person> attendants) {
         if (attendants == null) throw new IllegalArgumentException("");
-        this.personList = attendants;
+        this.attendants = attendants;
 
     }
 
     public void addAttendant(Person person) {
-        if (personList == null) personList = new ArrayList<>();
-            personList.add(person);
+        if (attendants == null) attendants = new ArrayList();
+        attendants.add(person);
     }
 
     public void removeAttend(List<Person> personList) {
